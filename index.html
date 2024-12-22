@@ -1010,3 +1010,27 @@
         <script src="/js/burger.js"></script>
     </body>
 </html>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const burger = document.querySelector('.burger');
+    const mobileMenu = document.querySelector('.mobile-menu');
+    const closeMenu = document.querySelector('.mobile-menu__close');
+
+    burger.addEventListener('click', () => {
+        mobileMenu.classList.toggle('active');
+        burger.classList.toggle('active'); 
+    });
+
+    closeMenu.addEventListener('click', () => {
+        mobileMenu.classList.remove('active');
+        burger.classList.remove('active'); 
+    });
+
+    document.addEventListener('click', (event) => {
+        if (!mobileMenu.contains(event.target) && !burger.contains(event.target)) {
+            mobileMenu.classList.remove('active');
+            burger.classList.remove('active'); 
+        }
+    });
+});
+</script>
